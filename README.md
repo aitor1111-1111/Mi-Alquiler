@@ -28,3 +28,8 @@ La factura de Mancomunidad AG2026555311 se incorpora desglosada: agua 67,68 € 
 ## Almacenamiento y privacidad
 
 Los datos se guardan en IndexedDB del navegador. No hay sincronización automática entre dispositivos ni envío a un servidor. Mantén copias de seguridad periódicas, especialmente antes de actualizar el navegador o cambiar de móvil.
+
+
+## Consulta de facturas con ChatGPT (opción manual asistida)
+
+En la pestaña Facturas, el botón «Consultar Outlook con ChatGPT» abre ChatGPT y copia una instrucción para buscar correos de BASER y Mancomunidad mediante la conexión de Outlook disponible en ChatGPT. El usuario debe pegar y enviar la instrucción en ChatGPT, revisar los resultados y copiar el contenido del correo a Mi Alquiler para analizarlo. Este botón no conecta la PWA directamente con Outlook, no ejecuta consultas en segundo plano y no guarda facturas automáticamente.
