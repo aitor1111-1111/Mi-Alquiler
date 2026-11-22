@@ -13,14 +13,14 @@
 <header><div class="brand"><span class="logo">⌂</span><span>MI ALQUILER</span></div><h1>Tu alquiler, bajo control.</h1><p>Ingresos · Gastos · Inquilinos · Liquidaciones</p></header>
 <div class="wrap">
 <nav class="nav" id="nav">
-<button class="active" data-tab="resumen">Resumen</button><button data-tab="inquilinos">Inquilinos</button><button data-tab="facturas">Facturas</button><button data-tab="liquidacion">Liquidación</button><button data-tab="historial">Historial</button><button data-tab="copias">Copias</button>
+<button class="active" data-tab="resumen">Resumen</button><button data-tab="inquilinos">Inquilinos</button><button data-tab="facturas">Facturas</button><button data-tab="liquidacion">Liquidación</button><button data-tab="historial">Historial</button><button data-tab="ajustes">Ajustes</button>
 </nav>
 <main>
 <section id="resumen" class="panel active">
 <div class="row"><div><div class="title">Resumen general</div><p class="sub" id="monthLabel"></p></div><input type="month" id="monthPick" style="max-width:160px"></div>
-<div class="grid"><div class="card metric"><small>Ingresos mensuales</small><strong class="green" id="incomeTotal">1.385,00 €</strong><small>Vivienda + garaje</small></div><div class="card metric"><small>Facturas registradas</small><strong id="billTotal">0,00 €</strong><small id="billCount">0 documentos</small></div><div class="card metric"><small>Inquilinos activos</small><strong id="tenantCount">3</strong><small>En el mes seleccionado</small></div><div class="card metric"><small>Gastos fijos del propietario</small><strong id="garageMetric">668,43 €</strong><small>Hipoteca + comunidad + internet</small></div></div>
+<div class="grid"><div class="card metric"><small>Ingresos mensuales</small><strong class="green" id="incomeTotal">1.385,00 €</strong><small>Vivienda + garaje</small></div><div class="card metric"><small>Facturas registradas</small><strong id="billTotal">0,00 €</strong><small id="billCount">0 documentos</small></div><div class="card metric"><small>Inquilinos activos</small><strong id="tenantCount">3</strong><small>En el mes seleccionado</small></div><div class="card metric"><small>Gastos del propietario</small><strong id="ownerMetric">668,60 €</strong><small>Hipoteca + comunidad + internet</small></div></div>
 <div class="card"><div class="row"><b>Desglose de ingresos</b><span class="pill">Mensual</span></div><div class="row" style="margin-top:13px"><span class="muted">Alquiler vivienda</span><b id="homeIncome">1.325,00 €</b></div><div class="row" style="margin-top:10px"><span class="muted">Alquiler garaje</span><b id="garageIncome">60,00 €</b></div><hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="row"><b>Total</b><strong class="total green" id="incomeBottom">1.385,00 €</strong></div></div>
-<div class="actions"><button class="btn secondary" onclick="go('facturas')">＋ Añadir factura</button><button class="btn secondary" onclick="go('liquidacion')">▦ Preparar liquidación</button></div>
+<div id="ownerExpenseSummary"></div><div class="actions"><button class="btn secondary" onclick="go('facturas')">＋ Añadir factura</button><button class="btn secondary" onclick="go('liquidacion')">▦ Preparar liquidación</button></div>
 </section>
 <section id="inquilinos" class="panel">
 <div class="title">Inquilinos y alquileres</div><p class="sub">Las bajas conservan el historial. La entrada y la salida cuentan como días ocupados.</p>
@@ -47,11 +47,11 @@
 <section id="historial" class="panel">
 <div class="title">Historial y pagos</div><p class="sub">Consulta liquidaciones guardadas y seguimiento individual de cobros.</p><div id="historyList"></div>
 </section>
-<section id="copias" class="panel">
-<div class="title">Copias de seguridad</div><p class="sub">Exporta tus datos y documentos para trasladarlos a otro teléfono.</p>
-<div class="card"><b>Exportar copia completa</b><p class="note">Genera un único archivo de respaldo con datos, inquilinos, facturas y documentos adjuntos. Guárdalo en un lugar seguro.</p><button class="btn" onclick="exportBackup()">Descargar copia de seguridad</button></div>
-<div class="card"><b>Restaurar una copia</b><p class="note">La restauración reemplaza los datos actuales de esta aplicación. Haz una copia antes de continuar.</p><input type="file" id="restoreFile" accept=".json,application/json"><button class="btn secondary" onclick="restoreBackup()">Restaurar copia</button></div>
-<div class="card"><b>Privacidad y almacenamiento</b><p class="note">Esta versión guarda la información localmente en el navegador de este dispositivo. No hay sincronización automática entre teléfonos. Si borras los datos del navegador sin exportar una copia, puedes perderlos.</p></div>
+<section id="ajustes" class="panel">
+<div class="title">Ajustes</div><p class="sub">Copia de seguridad, recuperación de datos y almacenamiento de Mi Alquiler.</p>
+<div class="card"><b>Crear copia de seguridad</b><p class="note">Descarga un único archivo JSON con todos los datos de la aplicación: inquilinos, alquileres, facturas, liquidaciones, gastos, avisos y documentos adjuntos. Puedes guardarlo en Descargas, Google Drive o enviártelo a otro dispositivo.</p><button class="btn" onclick="exportBackup()">↓ Crear y descargar copia</button></div>
+<div class="card"><b>Restaurar copia de seguridad</b><p class="note">Selecciona un archivo de copia creado por Mi Alquiler. La restauración sustituirá los datos que haya actualmente en esta aplicación. Antes de restaurar, descarga una copia de seguridad de los datos actuales.</p><label for="restoreFile">Archivo de copia (.json)</label><input type="file" id="restoreFile" accept=".json,application/json"><div class="actions"><button class="btn secondary" onclick="restoreBackup()">Restaurar datos</button></div></div>
+<div class="card"><b>Dónde se guardan tus datos</b><p class="note">La información se almacena localmente en este navegador y en este dispositivo. No se sincroniza automáticamente con otros móviles. No desinstales la aplicación ni borres los datos de Chrome sin tener antes una copia guardada.</p></div>
 </section>
 </main><footer>Mi Alquiler · Datos almacenados localmente en este dispositivo</footer>
 </div>
