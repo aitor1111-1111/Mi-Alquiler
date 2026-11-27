@@ -47,6 +47,8 @@
 <p class="note">El PDF de liquidación no incrusta las facturas originales: se conservan como documentos individuales en la sección Facturas.</p>
 </section>
 <section id="historial" class="panel">
+<div class="title">Historial de liquidaciones y cobros</div><p class="sub">Cada liquidación queda archivada por mes y año. Consulta un mes concreto o busca a un inquilino y marca su importe como cobrado o pendiente.</p><div class="card"><div class="split"><div><label>Buscar por mes y año</label><input type="month" id="historyMonth" onchange="renderHistory()"></div><div><label>Buscar inquilino</label><input id="historySearch" type="search" placeholder="Nombre del inquilino" oninput="renderHistory()"></div></div><button class="btn secondary small" onclick="document.getElementById('historyMonth').value='';document.getElementById('historySearch').value='';renderHistory()">Mostrar todo el histórico</button></div><div id="historyList"></div>
+</section>
 <div class="title">Historial y pagos</div><p class="sub">Consulta liquidaciones guardadas y seguimiento individual de cobros.</p><div id="historyList"></div>
 </section>
 <section id="ajustes" class="panel">
