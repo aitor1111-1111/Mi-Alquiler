@@ -49,8 +49,7 @@
 <section id="historial" class="panel">
 <div class="title">Historial de liquidaciones y cobros</div><p class="sub">Cada liquidación queda archivada por mes y año. Consulta un mes concreto o busca a un inquilino y marca su importe como cobrado o pendiente.</p><div class="card"><div class="split"><div><label>Buscar por mes y año</label><input type="month" id="historyMonth" onchange="renderHistory()"></div><div><label>Buscar inquilino</label><input id="historySearch" type="search" placeholder="Nombre del inquilino" oninput="renderHistory()"></div></div><button class="btn secondary small" onclick="document.getElementById('historyMonth').value='';document.getElementById('historySearch').value='';renderHistory()">Mostrar todo el histórico</button></div><div id="historyList"></div>
 </section>
-<div class="title">Historial y pagos</div><p class="sub">Consulta liquidaciones guardadas y seguimiento individual de cobros.</p><div id="historyList"></div>
-</section>
+
 <section id="ajustes" class="panel">
 <div class="title">Ajustes</div><p class="sub">Copia de seguridad, recuperación de datos y almacenamiento de Mi Alquiler.</p>
 <div class="card"><b>Crear copia de seguridad</b><p class="note">Descarga un único archivo JSON con todos los datos de la aplicación: inquilinos, alquileres, facturas, liquidaciones, gastos, avisos y documentos adjuntos. Puedes guardarlo en Descargas, Google Drive o enviártelo a otro dispositivo.</p><button class="btn" onclick="exportBackup()">↓ Crear y descargar copia</button></div>
